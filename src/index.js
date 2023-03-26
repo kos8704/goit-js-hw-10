@@ -3,6 +3,12 @@ import debounce from 'lodash.debounce';
 import Notiflix from 'notiflix';
 import './css/styles.css';
 
+Notiflix.Notify.init({
+  width: '300px',
+  position: 'center-top',
+  closeButton: false,
+  });
+
 const DEBOUNCE_DELAY    = 300;
 const inputSearch       = document.querySelector('#search-box');
 const countriesList     = document.querySelector('.country-list');
@@ -20,8 +26,6 @@ function onInputSearch(event) {
 
   if (!countryName) {
     clearPage();
-    countriesList.hidden = true;
-    countryInfo.hidden = true;
     return;
   }
 
@@ -33,6 +37,7 @@ function onInputSearch(event) {
 function handleFetchResult(result) {
   clearPage();
   if (result.length > 10) {
+    
     Notiflix.Notify.info('Too many matches found. Please, enter a more specific name.');
     return;
   }

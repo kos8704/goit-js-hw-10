@@ -1,4 +1,3 @@
-
 const URL = 'https://restcountries.com/v3.1/name/';
 const searchParams = new URLSearchParams({
     fields: 'name,capital,population,flags,languages,',
